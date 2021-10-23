@@ -10,7 +10,7 @@ Provides all the devops utilities needed to develop and release the full stack.
 
 To clone this repository:
 
-    git clone --recurse-submodules -j8 ssh://git@gitea.girgis.me:32822/tube-recorder/devops.git
+    git clone --recurse-submodules -j8 git@github.com:TubeRecorder/devops.git
 
 To make sure `master` branch is checked out:
 

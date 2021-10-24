@@ -9,4 +9,7 @@ ARG FILE_BEAT_YAML
 COPY ${FILE_BEAT_PATH} ./
 
 RUN \
-  dpkg -i ${FILE_BEAT_DEB} && rm ${FILE_BEAT_DEB} && mkdir /var/log/app && mv ${FILE_BEAT_YAML} /etc/filebeat/filebeat.yml
+  dpkg -i ${FILE_BEAT_DEB} && \
+  rm ${FILE_BEAT_DEB} && \
+  mkdir /var/log/app && \
+  mv ${FILE_BEAT_YAML} /etc/filebeat/filebeat.yml

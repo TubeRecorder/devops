@@ -2,8 +2,8 @@
 
 To test the build container:
 
-    docker run --name test --rm --network fullstack-network -it my-build/ts-build bash
+    docker run --name test --rm -it --network fullstack-network tube-recorder/ts-build bash
 
 To test the release container:
 
-    docker run --name test --rm --network fullstack-network -it my-build/ts-release bash
+    docker run --name test --rm -t --network fullstack-network tube-recorder/ts-release bash

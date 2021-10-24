@@ -1,6 +1,6 @@
 
-BUILDER_IMAGE_NAME=my-build/ts-builder:latest
-RELEASE_IMAGE_NAME=my-build/ts-release:latest
+BUILDER_IMAGE_NAME=tube-recorder/ts-builder:latest
+RELEASE_IMAGE_NAME=tube-recorder/ts-release:latest
 
 FILE_BEAT_PATH=filebeat
 FILE_BEAT_DEB=filebeat-oss-7.12.1-amd64.deb

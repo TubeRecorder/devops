@@ -1,6 +1,7 @@
 
 BUILDER_IMAGE_NAME=tube-recorder/rust-builder:latest
 RELEASE_IMAGE_NAME=tube-recorder/rust-release:latest
+DOWNLOAD_IMAGE_NAME=tube-recorder/rust-release-download:latest
 
 FILE_BEAT_PATH=filebeat
 FILE_BEAT_DEB=filebeat-oss-7.12.1-amd64.deb
@@ -13,6 +14,7 @@ all:
 clean:
 	docker image rm -f ${BUILDER_IMAGE_NAME}
 	docker image rm -f ${RELEASE_IMAGE_NAME}
+	docker image rm -f ${DOWNLOAD_IMAGE_NAME}
 
 build:
 	( \
@@ -28,5 +30,11 @@ build:
 		--build-arg FILE_BEAT_DEB=${FILE_BEAT_DEB} \
 		--build-arg FILE_BEAT_YAML=${FILE_BEAT_YAML} \
 		-t ${RELEASE_IMAGE_NAME} \
+		. \
+	)
+	( \
+		cd download; \
+		docker build \
+		-t ${DOWNLOAD_IMAGE_NAME} \
 		. \
 	)

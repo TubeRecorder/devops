@@ -1,0 +1,31 @@
+version: "3.4"
+
+services:
+  postgres-db:
+    image: postgres
+    volumes:
+      - "./db/postgres:/docker-entrypoint-initdb.d"
+    networks:
+      - fullstack-network
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_USER=admin"
+      - "POSTGRES_PASSWORD=admin_pass"
+
+  sql-ui:
+    image: adminer
+    restart: always
+    networks:
+      - fullstack-network
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgres-db
+
+# Connect to existing fullstack-network
+# can be created by: `docker network create fullstack-network`
+networks:
+  fullstack-network:
+    external:
+      name: fullstack-network

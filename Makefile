@@ -4,11 +4,18 @@ restart:
 	make up
 
 up:
+	make database_up
 	make rust_all
 	make ts_all
 
 down:
-	echo "nothing"
+	make database_down
+
+database_up:
+	(cd database; docker-compose up -d)
+
+database_down:
+	(cd database; docker-compose down)
 
 rust_all:
 	(cd rust; make all)

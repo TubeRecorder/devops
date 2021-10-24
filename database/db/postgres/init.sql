@@ -1,5 +1,5 @@
-CREATE DATABASE tuberecorder;
-\c tuberecorder;
+CREATE DATABASE test;
+\c test;
 
 -- a single table is used for all downloads
 CREATE TABLE downloads (
@@ -11,15 +11,15 @@ CREATE TABLE downloads (
 
 CREATE
   USER
-  db_user
+  test_user
 WITH
   NOCREATEDB
 ENCRYPTED PASSWORD
-  'db_pass';
+  'test_pass';
 
 GRANT
   ALL PRIVILEGES
 ON TABLE
   downloads
 TO
-  db_user;
+  test_user;

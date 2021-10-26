@@ -2,7 +2,7 @@
 
 To test the build container:
 
-    docker run --name test --rm -it --network fullstack-network tube-recorder/ts-build bash
+    docker run --name test --rm -it --network fullstack-network tube-recorder/ts-builder bash
 
 To test the release container:
 

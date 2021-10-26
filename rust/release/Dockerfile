@@ -21,7 +21,6 @@ RUN \
   useradd -ms /bin/bash release && \
   dpkg -i ${FILE_BEAT_DEB} && \
   rm ${FILE_BEAT_DEB} && \
-  mkdir /var/log/app && \
   mv ${FILE_BEAT_YAML} /etc/filebeat/filebeat.yml
 
 # switch to `release` user and use home directory

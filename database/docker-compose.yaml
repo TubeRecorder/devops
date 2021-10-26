@@ -5,6 +5,7 @@ services:
     image: postgres
     volumes:
       - "./db/postgres:/docker-entrypoint-initdb.d"
+      - "postgres_vol:/var/lib/postgresql/data"
     networks:
       - fullstack-network
     ports:
@@ -22,6 +23,9 @@ services:
       - "8082:8080"
     depends_on:
       - postgres-db
+
+volumes:
+  postgres_vol:
 
 # Connect to existing fullstack-network
 # can be created by: `docker network create fullstack-network`
